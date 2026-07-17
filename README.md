@@ -16,7 +16,6 @@ code.
 
 ```bash
 brew tap jeet427/beacon
-brew trust jeet427/beacon
 brew install --cask beacon
 ```
 
