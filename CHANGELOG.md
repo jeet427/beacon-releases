@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1.1 — 2026-07-17
+
+Patch release.
+
+- Fix: enabling Cloud Sync could trigger a rapid pull loop that flickered the UI and made
+  the app unresponsive (no data was lost or corrupted). Sync now settles to idle and only
+  runs when there are actual changes to push or pull.
+
 ## v1.1.0 — 2026-07-17
 
 Cloud Accounts — optional sign-in, zero-knowledge sync, and collection sharing. Beacon
