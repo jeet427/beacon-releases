@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.1.3 — 2026-07-17
+
+- Cloud Sync: collections now appear correctly across all your devices. Every
+  device's "Default" workspace is the same synced workspace (existing duplicate
+  "Default" workspaces are merged automatically on first launch).
+- Check for Updates: Beacon menu → "Check for Updates…", plus a Settings row and
+  a quiet once-a-day launch check. Updates download and install in place with
+  one click — just restart to finish (no browser needed).
+- Folder colors: assign a color to collection folders from the sidebar.
+- Fixes: pinned tabs no longer duplicate after a sync; collection refreshes no
+  longer flash other workspaces' collections; Monaco editor focus-ring cleanup.
+
+## v1.1.2 — 2026-07-17
+
+- First Windows build: `Beacon-Setup-<version>.exe` (unsigned NSIS installer —
+  SmartScreen will ask for "More info → Run anyway"). No macOS changes.
+
 ## v1.1.1 — 2026-07-17
 
 Patch release.
