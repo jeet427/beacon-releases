@@ -54,7 +54,7 @@ Downloads the correct build for your Mac, installs it to `/Applications`, and cl
 quarantine flag automatically:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/jeet427/beacon-releases/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/jeet427/beacon-releases/HEAD/install.sh | bash
 ```
 
 Review [`install.sh`](install.sh) before piping it to `bash` if you'd like to see exactly

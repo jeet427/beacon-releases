@@ -3,7 +3,7 @@
 # install.sh — Download and install the latest Beacon.app release for this Mac.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/jeet427/beacon-releases/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/jeet427/beacon-releases/HEAD/install.sh | bash
 #
 # What it does:
 #   1. Detects your Mac's chip (Apple Silicon vs Intel) via `uname -m`.
