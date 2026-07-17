@@ -1,5 +1,38 @@
 # Changelog
 
+## v1.2.0 — 2026-07-18
+
+- Full-screen workspaces: Environments, Load Tests, Monitors, Connections
+  (Mock/WebSocket), and Flows now open full-screen in the main area instead of a
+  cramped sidebar. Collections and History stay in the quick side panel. Press
+  the sidebar icon again, Esc, or click a request tab to return.
+- Environments, rebuilt: a full-screen editor with the environment list beside
+  its variables — a clear "Set Active" button and Active badge, inline rename,
+  secret masking, and one-click Postman environment import (no more popup dialog).
+- Load testing with real charts: every run now records and keeps a latency
+  histogram and time series, so past runs show full graphs — latency over time
+  (avg/p50/p95/p99), throughput and virtual users, latency distribution, and
+  status breakdown. A new History tab browses runs across all your load tests,
+  and you can compare two runs side by side.
+- Separate sync button: the sync indicator is now its own button, distinct from
+  your profile — clicking your name just opens the account menu. It clearly shows
+  in-sync, out-of-sync (with a pending-change count), syncing, locked, offline,
+  and error states.
+- Collection & folder auth + headers: set authentication and default headers once
+  on a collection or folder and let requests inherit them (choose "Inherit from
+  parent" on a request's Auth tab).
+- Saved assertions & response variables: the assertion builder's rules now persist
+  with the request (and sync/share with it), and a new "Vars" tab extracts values
+  from a response (body/header/status) into an environment or global variable — no
+  scripting needed.
+- Better Postman import: imported requests keep their descriptions, path variables,
+  and file form-fields; anything unsupported is listed in an "imported with
+  warnings" summary.
+- Collection Runner: added a stop-on-failure option and the ability to run a single
+  folder.
+- Markdown docs preview: the Docs tab on requests, collections, and folders now
+  renders Markdown with an Edit/Preview toggle.
+
 ## v1.1.3 — 2026-07-17
 
 - Cloud Sync: collections now appear correctly across all your devices. Every
