@@ -1,5 +1,38 @@
 # Changelog
 
+## v1.2.1 — 2026-07-18
+
+- Environments, Load Tests, and Monitors now open as tabs (like requests) instead
+  of taking over the whole window: pick one from its sidebar list and it opens in
+  a workbench tab you can edit alongside your requests. The sidebar list stays
+  docked open beside the editor — clicking an item no longer collapses it, and
+  its rail icon toggles the whole panel.
+- The last tab can now be closed — you get a clean "No tab open" empty state
+  (press ⌘T for a new request) instead of a blank request being forced open.
+- New app icon: refreshed, larger (now the standard macOS size so it matches other
+  apps in your dock), with a background that follows your chosen accent color for
+  the built-in accent presets.
+- The sync button now shows a subtle greyed-out state when you're signed out or
+  sync is off, instead of disappearing.
+
+Fixes:
+
+- Following a "303 See Other" redirect now keeps your Authorization and other
+  headers and drops the previous request body — it was previously doing the
+  opposite (dropping headers, re-sending the body).
+- Background cloud sync no longer jumps you to a different tab while you're
+  editing.
+- Monitors now run a request exactly as saved — path variables, folder-inherited
+  auth/headers, and response-variable extraction rules are all applied — so you
+  get fewer false "down" alerts.
+- Scripts: variables a collection script sets are now visible to the request's
+  own script, `pm.environment.unset()` / `pm.globals.unset()` actually remove a
+  variable, and collection scripts run before request scripts.
+- Import from curl keeps passwords that contain a colon and no longer mistakes a
+  flag's value for the URL.
+- Environments and global variables still load if the system keychain is briefly
+  unavailable, and "compare with previous response" now works again.
+
 ## v1.2.0 — 2026-07-18
 
 - Full-screen workspaces: Environments, Load Tests, Monitors, Connections
