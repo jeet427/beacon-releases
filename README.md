@@ -10,6 +10,9 @@ on your machine, no account required.
 This repository hosts **downloadable builds only**. It does not contain Beacon's source
 code.
 
+> 📖 **[Read the User Guide](user-guide/README.md)** — a complete, indexed walkthrough of
+> every feature, from your first request to flows, load testing, and cloud sync.
+
 ## Install
 
 ### Option 1 — Homebrew (recommended)

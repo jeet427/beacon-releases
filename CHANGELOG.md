@@ -1,5 +1,49 @@
 # Changelog
 
+## v1.3.1 — 2026-07-20
+
+- Flows: a new **Input** node pauses a running flow and shows a small form — the
+  values you type become flow variables for every node downstream. Use it for a
+  value you only know at run time (an order id, an OTP, a one-off token) or one
+  that depends on an earlier response; Cancel aborts the run. Fields can be marked
+  secret to mask them, and default values pre-fill the form.
+- New: a complete in-app **[user guide](user-guide/README.md)** covering every
+  feature — from your first request through variables, scripts, collections, the
+  runner, flows, load testing, mocks, monitors, and cloud sync.
+
+## v1.3.0 — 2026-07-19
+
+- **Living Response** — a new interactive way to read JSON responses. Explore the
+  body as a tree, hover any field to copy, extract, filter, or pin it, and pin
+  fields to a Pinboard that charts how each value changes across sends (with
+  sparklines and up/down deltas). Values are rendered richly inline — relative
+  time for timestamps, a swatch for colors, links for URLs, human sizes for byte
+  counts, and one-click decode for JWTs — plus a table view for arrays of objects
+  and ⌘F find across both keys and values.
+- **Flows** — chain requests visually on a canvas. Wire together Request,
+  Condition, Extract, Delay, and Script nodes so one response feeds the next, and
+  drag a saved request straight onto the canvas to add it.
+- **Load-test request capture** — a run can now capture individual request and
+  response samples (all requests, errors only, or off), stored locally on your
+  device, with a per-sample detail view and an errors-only filter.
+- Helpful tooltips throughout the app explain what each control does.
+- Shell: every sidebar item now opens as a docked list with its editor in a
+  workbench tab, and collection settings open in their own tab.
+
+Fixes:
+
+- Request history now actually persists between sessions — it was silently not
+  saving.
+- Security: scripts in imported or synced collections no longer run until you
+  explicitly trust the collection; credential headers (Authorization, Cookie,
+  API keys) are stripped from public shares and from cross-origin redirects; and
+  collection imports fail closed.
+- Load tests now send cookies from the cookie jar; generated code snippets resolve
+  inherited and OAuth 2.0 auth and build GraphQL bodies correctly; and the
+  environment editor no longer drops keystrokes while you type.
+- A range of correctness fixes across HTTP handling, sync, scripts, monitors, and
+  cURL import.
+
 ## v1.2.1 — 2026-07-18
 
 - Environments, Load Tests, and Monitors now open as tabs (like requests) instead
