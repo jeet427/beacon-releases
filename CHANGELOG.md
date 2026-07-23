@@ -1,5 +1,59 @@
 # Changelog
 
+## v1.3.4 — 2026-07-23
+
+A security and reliability release. A full audit of the app turned up a batch of
+defects — several of them credential leaks — and this release fixes them.
+
+**Security**
+
+- **Cloud Sync no longer uploads your credentials in plaintext.** Auth tokens,
+  passwords, OAuth client secrets, `Authorization` headers, and credentials
+  embedded in a URL are now encrypted before they leave your machine, the same
+  way secret variables already were. (Previously only secret *variables* were
+  encrypted; everything else synced in the clear.) On your next unlock the app
+  re-uploads existing data so the older plaintext copies are overwritten.
+- **Shared collections no longer leak secrets.** Publishing a collection now
+  also strips API keys placed in query parameters, credentials embedded in a
+  URL (`https://user:pass@host`), usernames, and local file paths — not just the
+  auth fields it stripped before.
+- Credential headers are no longer replayed across a redirect to a different
+  host, and shared/imported collections keep their scripts disabled until you
+  explicitly trust them (closing a way a malicious import could run code).
+
+**Requests**
+
+- Path parameters (`/users/:id`) and auth headers are no longer dropped when a
+  pre-request script runs.
+- Requests now send a `Content-Length` instead of chunked encoding, fixing
+  uploads to S3 presigned URLs, signed APIs, and stricter gateways.
+- Cookies now honour `Secure`, `Path`, and `Expires`/`Max-Age` correctly, and a
+  server setting several cookies at once no longer loses their expiry.
+- The Collection Runner and Flows now send file uploads and binary bodies (they
+  were silently sent empty), and generated code snippets and the GraphQL
+  "Fetch schema" now match what the app actually sends (query params, auth,
+  cookies, proxy, JSON comments).
+
+**Reliability**
+
+- **Cancel** now actually stops a streaming or long-running response instead of
+  spinning forever, and a very large response no longer wedges the request.
+- Load tests and WebSocket connections now stop when you close the window.
+- **Watch** keeps polling when you switch tabs instead of silently pausing, and
+  each tab keeps its own counter and baseline.
+- Script errors (pre-request and test) are now surfaced instead of being
+  silently swallowed, and one failing test no longer discards the rest.
+
+**Fixes**
+
+- Pinned tabs no longer come back after you close them, and edits to a pinned
+  tab are no longer lost on restart; tab order is remembered.
+- Saving a request no longer erases its response Schema, and open tabs refresh
+  after Find & Replace or a cloud pull instead of overwriting the change.
+- ⌘/ and ⌘K are no longer stolen from the code editor while you're typing.
+- Removing a collection from a workspace now actually sticks, and deleting a
+  request cleans up its monitors instead of leaving them silently dead.
+
 ## v1.3.1 — 2026-07-20
 
 - Flows: a new **Input** node pauses a running flow and shows a small form — the
